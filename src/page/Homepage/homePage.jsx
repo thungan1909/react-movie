@@ -6,6 +6,7 @@ import Banner from "../../component/Banner/banner";
 import './homePage.css'
 import BASE_URL from '../../utils/api'
 import options from "../../utils/options";
+import TrendingSection from "../../component/TrendingSection/trendingSection";
 
 
 export default function HomePage()
@@ -27,6 +28,7 @@ export default function HomePage()
       <div id="homepage-wrapper">
           <CustomHeader></CustomHeader>
           <Banner></Banner>
+          <TrendingSection></TrendingSection>
             
       </div>
     )

@@ -1,6 +1,6 @@
 import './banner.css'
+import '../../App.css'
 import CustomHeader from '../CustomHeader/customHeader'
-import PopularMovie from '../PopularMovie/popularMovie'
 
 export default function Banner()
 {
