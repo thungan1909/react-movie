@@ -18,29 +18,23 @@ export default function CustomHeader ()
     return(
     <Header >
         <div className="logo">
-            <span className="logo-first-char">M</span>
+            ffim
         </div>
-          <div className="btn-wrapper">
-             <Tooltip title="Search">
-               <Button className="header-btn" type="primary" shape="circle" icon={<SearchOutlined />} />
-            </Tooltip>
-            <Button className="header-btn">Login</Button>
-            <Button className="header-btn">Sign In</Button>
-            
-       </div>
-     
         <Menu
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={['1']}
             items = {items }
             className = "header-menu"
-            
-         
             >
         </Menu>
-     
-        
+        <div className="btn-wrapper">
+             <Tooltip title="Search">
+               <Button className="header-btn" type="primary" shape="circle" icon={<SearchOutlined />} />
+            </Tooltip>
+            <Button className="header-btn">Login</Button>
+            <Button className="header-btn">Sign In</Button>
+       </div>
     </Header>
     )
 }

@@ -2,7 +2,7 @@ import { Layout, Menu } from "antd";
 import { Content} from "antd/es/layout/layout";
 import { useEffect, useState } from "react";
 import CustomHeader from "../../component/CustomHeader/customHeader";
-import Hero from "../../component/Hero/hero";
+import Banner from "../../component/Banner/banner";
 import './homePage.css'
 import BASE_URL from '../../utils/api'
 import options from "../../utils/options";
@@ -24,9 +24,10 @@ export default function HomePage()
     //     console.log(data);
     // }, [data])
     return (
-      <Layout className="layout">
-          <Hero></Hero>
+      <div id="homepage-wrapper">
+          <CustomHeader></CustomHeader>
+          <Banner></Banner>
             
-      </Layout>
+      </div>
     )
 }

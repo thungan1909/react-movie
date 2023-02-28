@@ -1,28 +1,39 @@
 
+header{
+  background: #001529;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 5px 8px rgb(0 0 0 / 15%);
+  top: 0;
+  position: sticky;
+  padding: 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+ 
+}
 .logo {
     float: left;
     display: flex;
     margin: auto;
     color: var(--white-color);
     margin-right: 50px;
-  }
-  .logo-first-char{
-    font-size: 50px;
-    width: 100%;
-   
-  }
+    font-size: 48px;
+    line-height: 48px;
+    margin-left: 50px;
+    
+}
 .header-menu{
     width: fit-content;
-    
- 
 }
-
 .header-btn{
-    float: right;
-    margin-top: 16px;
-    margin-left: 8px;
     background-color: transparent;
     color: var(--white-color);
     border: none;
+    margin-left: 12px;
+}
+.btn-wrapper{
+    position: relative;
+    margin-right: 48px;   
 }
