@@ -19,25 +19,28 @@
 .film-card__title{
     margin: 0px 20px 0px 0px;   
 }
-.film-card__btn-wrapper{
+/* .film-card__btn-wrapper{
     border: 1px solid ;
     border-color: var(--dark-blue-color);
     border-radius: 30px;
-    display: flex;
-    justify-content: flex-end;
+
 }
-.film-card__btn--active {
-    /* --dark-blue-color: rgb(3,37,65);
-    --white-color: #FFF; */
+ */
+
+:where(.css-dev-only-do-not-override-1km3mtt).ant-segmented .ant-segmented-item-selected {
+    background-color: rgb(3,37,65);
+    color: var(--white-color);
+   
+}
+/* .film-card__btn.film-card__btn--active {
+    --dark-blue-color: rgb(3,37,65);
+    --white-color: #FFF;
     border-right: 1px solid ;
     border-color: var(--dark-blue-color);
     border-radius: 30px;
-    background-color: var(--dark-blue-color);
-    color: var(--white-color);
-}
-.film-card__btn{
-    padding: 4px 16px;
-}
+    background-color: var(--dark-blue-color);   
+} */
+
 .film-card__list-wrapper{
     width: 100%;
 }
