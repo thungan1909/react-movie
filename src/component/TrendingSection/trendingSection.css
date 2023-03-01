@@ -6,25 +6,27 @@
     --text-color: #333;
     --dark-blue-color: rgb(3,37,65);
   }
-.trending-section{
+
+.film-card-section{
     margin-left: 40px;
     margin-top: 40px;
+   
 }
-.trending__header{
+.film-card__header{
     display: flex;
     align-items: center;
 }
-.trending__title{
+.film-card__title{
     margin: 0px 20px 0px 0px;   
 }
-.trending__btn-wrapper{
+.film-card__btn-wrapper{
     border: 1px solid ;
     border-color: var(--dark-blue-color);
     border-radius: 30px;
     display: flex;
     justify-content: flex-end;
 }
-.trending__btn--active {
+.film-card__btn--active {
     /* --dark-blue-color: rgb(3,37,65);
     --white-color: #FFF; */
     border-right: 1px solid ;
@@ -33,16 +35,21 @@
     background-color: var(--dark-blue-color);
     color: var(--white-color);
 }
-.trending__btn{
+.film-card__btn{
     padding: 4px 16px;
 }
-.trending__list{
+.film-card__list-wrapper{
+    width: 100%;
+}
+.film-card__list{
     list-style: none;
     padding: 0;
     display: flex;
+    overflow: scroll;
 
 }
-.trending__item{
+.film-card__item{
+    position: relative;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -50,21 +57,52 @@
     height: 315px;
     margin: 0;
     margin-right: 12px;
-    border-radius: 2px;
-  
+    border-radius: 2px;  
 }
 
-.trending__item-img{
-    /* padding-top: 100%; */
-    width: 150px;
-    height: 230px;
+.film-card__item-img{
+     width: 150px;
+     height: 230px;
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: top center;
+    background-size: cover;
+    background-position: 50% 50%;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     overflow: hidden;
+ 
 }
-.trending__item-name{
+.film-card__item-name{
+    margin: 16px 0px 8px;
     font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    height: 32px;
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
+.film-card__item-voting{
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-150%);
+    left: 8px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--dark-blue-color);
+    border: 1px solid;
+    color: var(--white-color);
+
+}
+
+
+.film-card__item-voting-percent.ant-progress .ant-progress-text {
+    color: var(--white-color);
+    font-weight: 700;
+  }
+  
