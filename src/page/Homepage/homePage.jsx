@@ -16,9 +16,7 @@ export default function HomePage()
       <div id="homepage-wrapper">
           <CustomHeader></CustomHeader>
           <Banner></Banner>
-          <TrendingSection></TrendingSection>
-          
-            
+          <TrendingSection></TrendingSection>  
       </div>
     )
 }

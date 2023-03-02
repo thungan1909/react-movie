@@ -4,17 +4,27 @@ import { SearchOutlined } from '@ant-design/icons';
 import './customHeader.css'
 const items = [
     {
-        label: 'TOP CAST',
+        label: (
+            <a href="#">TRANG</a>
+        )
     },
     {
-        label: 'PHOTOS',
+        label: (
+            <a href="#">TRENDING</a>
+        )
     },
     {
-        label: 'VIDEO',
+        label: (
+            <a href="#">TRENDING</a>
+        )
     },
+   
 ]
 export default function CustomHeader ()
 {
+    const handleChangeMenu = (value) => {
+        console.log(value)
+    }
     return(
     <Header >
         <div className="logo">
@@ -26,6 +36,7 @@ export default function CustomHeader ()
             defaultSelectedKeys={['1']}
             items = {items }
             className = "header-menu"
+            onClick={e => handleChangeMenu(e)}
             >
         </Menu>
         <div className="btn-wrapper">

@@ -4,11 +4,11 @@ import {Progress, Carousel,  Segmented}   from 'antd';
 import { useEffect, useState } from 'react';
 import API_KEY from '../../utils/apiKey';
 import BASE_URL from '../../utils/baseURL';
-
+import IMAGE_URL from '../../utils/urlImage';
 export default function TrendingSection() {
     const [data, setData]  = useState([]);
     const [timerSegmented, setTimerSegmented] = useState('day');
-    const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
+
     
  
     const handleChangeTimerSegmented = (value) => {
