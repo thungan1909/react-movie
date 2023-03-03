@@ -7,6 +7,7 @@ import BASE_URL from '../../utils/baseURL'
 import API_KEY from '../../utils/apiKey'
 import { Carousel, Button } from 'antd'
 import { CaretRightOutlined, InfoCircleOutlined} from '@ant-design/icons';
+import { Link } from 'react-router-dom'
 
 
 export default function Banner()
@@ -39,11 +40,7 @@ export default function Banner()
            
     }, [data])
 
-    // function swapData ({...a}, {...b}) {
-    //     let temp = a;
-    //     a = b;
-    //     b = temp;
-    // }
+
     const sortByRating = (data) => {
         // let max = data[0].vote_average;
         tempArray = JSON.parse(JSON.stringify(data));
@@ -65,6 +62,12 @@ export default function Banner()
         setDataSorted(tempArray)
     }
 
+    const handleWatchFilm = () => {
+
+    }
+    const handleSeeDetail = (id) => {
+      
+    }
   
     const contentStyle = {
         height: '160px',
@@ -79,7 +82,7 @@ export default function Banner()
     {
         return(
             <div id = "banner">
-              <Carousel dotPosition={"bottom"}>
+              <Carousel autoplay dotPosition={"bottom"}>
                     {dataSorted?. length === 0 ?
                         (<div>Wait</div>)
                     :
@@ -90,25 +93,20 @@ export default function Banner()
                         
                         return(
 
-                             <>
+                             <div key={item.id}>
                                 <img className='banner-img' src={IMAGE_URL + item.backdrop_path}></img>
                                 <div className="popular-film__detail-wrap">
                                     <div className='popular-film__detail'>
                                         <span className="popular-film__title">{item.title}</span>
                                         <p className="popular-film__overview">{item.overview}</p>
                                         <div className="popular-film__buttonWrapper">
-                                        <Button className='popular-film__btn' type="primary" shape="round" size={'large'} icon={<CaretRightOutlined />}>
-                                        Xem ngay
-                                    </Button>
-                                    <Button className='popular-film__btn' type="primary" shape="round" size={'large'} icon={<InfoCircleOutlined />}>
-                                        Chi tiết
-                                    </Button>
+                                         <Link to={`filmDetail/${item.id}`}  >Chi tiết</Link>
                                         </div>
                                     </div>
                                 </div>
                
                                 
-                            </>
+                            </div>
                       
                       
                         )

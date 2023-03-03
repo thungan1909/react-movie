@@ -5,6 +5,7 @@ import CustomHeader from "../../component/CustomHeader/customHeader";
 import Banner from "../../component/Banner/banner";
 import './homePage.css'
 import TrendingSection from "../../component/TrendingSection/trendingSection";
+import LastestSection from "../../component/LastestSection/latestSection";
 
 
 export default function HomePage()
@@ -17,6 +18,7 @@ export default function HomePage()
           <CustomHeader></CustomHeader>
           <Banner></Banner>
           <TrendingSection></TrendingSection>  
+          {/* <LastestSection></LastestSection> */}
       </div>
     )
 }

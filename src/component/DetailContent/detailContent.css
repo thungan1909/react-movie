@@ -1,0 +1,7 @@
+.film-detail__statistic{
+    display: flex;
+    color: inherit;
+    flex-direction: column;
+}
+
+
