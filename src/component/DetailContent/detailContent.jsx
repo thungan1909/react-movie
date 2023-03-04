@@ -3,12 +3,13 @@ import { CaretRightOutlined, PlusOutlined, LikeFilled, StarFilled, StarOutlined,
 import { useEffect, useState } from "react";
 import './detailContent.css'
 import IMAGE_URL from "../../utils/urlImage";
+import SimilarMovie from "../SimilarMovie/similarMovie";
 
 export default function DetailContent({item})
 {
     const desc = ['Dở tệ', 'Không hay', 'Bình thường', 'Hay', 'Tuyệt vời'];
   
-    console.log(item);
+  
     const [value, setValue] = useState(3);
   
     return(
@@ -76,8 +77,7 @@ export default function DetailContent({item})
                     }
                 </div>
             </div>
-
-         
+            
         </div>
     )
 }

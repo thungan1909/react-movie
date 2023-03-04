@@ -7,6 +7,7 @@ import BannerFilm from "../../component/BannerFilm/bannerFilm";
 import CustomHeader from "../../component/CustomHeader/customHeader";
 import DetailContent from "../../component/DetailContent/detailContent";
 import IMAGE_URL from "../../utils/urlImage";
+import SimilarMovie from "../../component/SimilarMovie/similarMovie";
 
 export default function FilmDetail () 
 {
@@ -42,10 +43,13 @@ export default function FilmDetail ()
                     <div className="detail-info">
                         <BannerFilm item={filmInfo}></BannerFilm>
                         <DetailContent item={filmInfo}></DetailContent>
-                    </div>
-                      
-                        
+                    </div>   
+                   
                 </div>
+                <div className="similar-movie-wrapper">
+                     <SimilarMovie movieID={filmInfo.id}></SimilarMovie>
+                </div>
+              
             </div>
         )
     }

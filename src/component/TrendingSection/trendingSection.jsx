@@ -5,9 +5,11 @@ import { useEffect, useState } from 'react';
 import API_KEY from '../../utils/apiKey';
 import BASE_URL from '../../utils/baseURL';
 import IMAGE_URL from '../../utils/urlImage';
+import { useNavigate } from 'react-router-dom';
 export default function TrendingSection() {
     const [data, setData]  = useState([]);
     const [timerSegmented, setTimerSegmented] = useState('day');
+    const navigate = useNavigate();
 
     
  
@@ -41,7 +43,9 @@ export default function TrendingSection() {
         
         })
     }, [timerSegmented])
-
+    const handleClickCard = (id) =>{
+        navigate(`/filmDetail/${id}`, { replace: true });
+    }
 if (data != undefined)
     {
  return(
@@ -64,7 +68,7 @@ if (data != undefined)
                         const date = new Date(item.release_date || item.first_air_date);
                                   return(
                                     
-                                        <a className="film-card__item" key={item.id}>
+                                        <a className="film-card__item" key={item.id} onClick = {() => handleClickCard (item.id)}>
                                             <div className="film-card__item-img" style={{backgroundImage: `url(${IMAGE_URL}${item.backdrop_path})` }}></div>
                                             <span className="film-card__item-name">{item.title || item.name}</span>
                                             <span className="film-card__item-time">{date.toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}) }</span>

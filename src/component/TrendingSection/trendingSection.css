@@ -49,7 +49,6 @@
     padding: 0;
     display: flex;
     overflow: scroll;
-
 }
 .film-card__item{
     position: relative;
