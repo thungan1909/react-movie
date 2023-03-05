@@ -5,12 +5,12 @@ import './customHeader.css'
 const items = [
     {
         label: (
-            <a href="#">TRANG</a>
+            <a href="/home">TRANG CHỦ</a>
         )
     },
     {
         label: (
-            <a href="#">TRENDING</a>
+            <a href="#">PHIM</a>
         )
     },
     {
@@ -27,9 +27,9 @@ export default function CustomHeader ()
     }
     return(
     <Header >
-        <div className="logo">
+        <a href="/home" className="logo">
             ffim
-        </div>
+        </a>
         <Menu
             theme="dark"
             mode="horizontal"
