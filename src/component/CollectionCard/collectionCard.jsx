@@ -1,8 +1,3 @@
-export default function CollectionCard({id}) 
-{
-    return(
-        <>
-
-        </>
-    )
+export default function CollectionCard({ id }) {
+  return <></>;
 }
