@@ -6,6 +6,7 @@ import BASE_URL from "../../utils/baseURL";
 import './similarMovie.css'
 
 import CardItem from "../CardItem/cardItem";
+import HorizontalCardItem from "../HorizontalCardItem/horizontalCardItem";
 
 export default function SimilarMovie({movieID}) 
 {
@@ -33,7 +34,7 @@ export default function SimilarMovie({movieID})
     return(
         <div className="horizontal-card__list-wrapper">
         <h1 style={{color: '#FFF'}}>Các phim tương tự</h1>
-        <ul className="film-card__list">
+        <ul className="film-card__horizontal-list">
         <Row justify={'space-between'}>
              { data?.length === 0 ? 
              (<div>Wait</div>)
@@ -44,7 +45,7 @@ export default function SimilarMovie({movieID})
                 if (index < 10)
                 {
                     return(
-                     <CardItem item={item}></CardItem>
+                     <HorizontalCardItem item={item}></HorizontalCardItem>
                     
                   )
                 } 

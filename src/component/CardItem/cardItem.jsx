@@ -7,17 +7,15 @@ export default function CardItem({item})
     const handleClickCard = (id) =>{
         navigate(`/filmDetail/${id}`, { replace: true });
     }
+    const date = new Date(item.release_date || item.first_air_date);
     return(
-        <Col span={4} style = {{margin: '4px'}}>
-                        {/* <Link to={`./filmDetail/${item.id}`} target="_blank" > */}
-                            <a className="horizontal-card__item" key={item.id} onClick = {() => handleClickCard (item.id)}>
-                                <div className="horizontal-card__item-img" style={{backgroundImage: `url(${IMAGE_URL}${item.backdrop_path})` }}></div>
-                                <span className="film-card__item-name">{item.title || item.name}</span>
-                                <div className="film-card__item-voting">
-                                    <Progress className="film-card__item-voting-percent" type="circle"  percent = {Math.round(item.vote_average*10)}  width = {36}  strokeColor = {Math.round(item.vote_average*10) < 70 ? '#d1d431': '#20b66b'} trailColor = {'#3f3c10'}  />
-                                </div>
-                            </a>
-                        {/* </Link> */}
-        </Col>
+        <a className="film-card__item" onClick = {() => handleClickCard (item.id)}>
+        <div className="film-card__item-img" style={{backgroundImage: `url(${IMAGE_URL}${item.backdrop_path})` }}></div>
+        <span className="film-card__item-name">{item.title || item.name}</span>
+        <span className="film-card__item-time">{date.toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}) }</span>
+        <div className="film-card__item-voting">
+            <Progress className="film-card__item-voting-percent" type="circle"  percent = {Math.round(item.vote_average*10)}  width = {36}  strokeColor = {Math.round(item.vote_average*10) < 70 ? '#d1d431': '#20b66b'} trailColor = {'#3f3c10'}  />
+        </div>
+       </a>
     )
 }

@@ -22,10 +22,12 @@ header{
     font-size: 48px;
     line-height: 48px;
     margin-left: 50px;
+    text-decoration: none;
     
 }
 .header-menu{
-    width: fit-content;
+    width: max-content;
+    min-width: 700px;
 }
 .header-btn{
     background-color: transparent;
@@ -34,6 +36,11 @@ header{
     margin-left: 12px;
 }
 .btn-wrapper{
+    display: flex;
     position: relative;
     margin-right: 48px;   
+}
+.searchbar{
+    width: 300px;
+    margin-right: 16px;
 }
