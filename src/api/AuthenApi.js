@@ -16,7 +16,6 @@ export default class AuthenApi
         {
             throw new Error(error.message);
         }
-        // console.log(data);
        return data;
     }
     static async ApproveToken({token})

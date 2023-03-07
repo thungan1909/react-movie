@@ -1,6 +1,6 @@
 import { Header } from "antd/es/layout/layout";
 import "./customHeader.css";
-import AccountDropdown from "../../AccountDropdown/accountDropdown";
+import AccountDropdown from "../AccountDropdown/accountDropdown";
 import SearchBar from "../SearchBar/searchBar";
 
 export default function CustomHeader() {

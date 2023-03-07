@@ -1,22 +1,23 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthenApi from "../../api/AuthenApi";
 import "./login.css";
 export default function Login() {
   const [data, setData] = useState();
-  const navgative = useNavigate();
+  const navigate = useNavigate();
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-    AuthenApi.CreateRequestToken().catch((res) => setData(res));
+    // console.log("Received values of form: ", values);
+    AuthenApi.CreateRequestToken().then((res) => setData(res));
   };
-  //   useEffect(() => {
-  //     if (data !== undefined) {
-  //     //   navgative(
-  //     //     `https://www.themoviedb.org/authenticate/${data.request_token}`);
-  //     }
-  //   }, [data]);
+
+  useEffect(() => {
+    if (data != undefined) {
+      localStorage.setItem("token", data.request_token);
+      navigate("/home", { replace: true });
+    }
+  }, [data]);
   return (
     <div
       style={{

@@ -13,19 +13,6 @@ import Login from "./page/Login/login";
 import Register from "./page/Register/register";
 import routes from "./routes";
 function App() {
-
-  // const navigate = useNavigate();
-  // const token = localStorage.getItem("token");
-  // const location = useLocation();
-  // console.log(location);
-  // const checkToken = () =>{
-  //   const token = localStorage.getItem("token");
-
-  //   const isAuthenticated = token && token.length > 0 ? (!token) : false;
-  //   if (!isAuthenticated) {
-  //     return <Navigate to="/login" replace />;
-  //   }
-  // }
   const getRoutes = (allRoutes) =>
     allRoutes.map((route) =>{
      if(route.route)
