@@ -1,9 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { Row } from "antd";
-import HorizontalCardItem from "../HorizontalCardItem/horizontalCardItem";
 import { useEffect, useState } from "react";
-import CustomHeader from "../CustomHeader/customHeader";
-
+import HorizontalCardItem from "../../component/base/HorizontalCardItem/horizontalCardItem";
+import CustomHeader from "../../component/base/CustomHeader/customHeader";
 export default function SearchResult() {
   const { state } = useLocation();
 
@@ -12,7 +11,7 @@ export default function SearchResult() {
   useEffect(() => {
     setData(state.data);
   }, [state]);
-  if (data != undefined)
+  if (data !== undefined)
     return (
       <div className="page-wrapper">
         <CustomHeader></CustomHeader>

@@ -1,6 +1,4 @@
 import API_KEY from "../utils/apiKey";
-import BASE_URL from "../utils/baseURL";
-
 import AxiosClient from "./AxiosClient";
 export default class MovieApi
 {

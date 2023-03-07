@@ -1,5 +1,5 @@
 import "./filmSection.css";
-import CardItem from "../CardItem/cardItem";
+import CardItem from "../../base/CardItem/cardItem";
 export default function FilmSection({ titleSection, data }) {
   return (
     <div className="film-card-section">

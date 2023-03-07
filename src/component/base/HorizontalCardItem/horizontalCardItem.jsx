@@ -1,6 +1,6 @@
-import IMAGE_URL from "../../utils/urlImage";
-import { Link, useNavigate } from "react-router-dom";
-import { Progress, Grid, Row, Col } from "antd";
+// import IMAGE_URL from "../../utils/urlImage";
+import { useNavigate } from "react-router-dom";
+import { Progress, Col } from "antd";
 export default function HorizontalCardItem({ item }) {
   const navigate = useNavigate();
   const handleClickCard = (id) => {
@@ -16,7 +16,7 @@ export default function HorizontalCardItem({ item }) {
       >
         <div
           className="horizontal-card__item-img"
-          style={{ backgroundImage: `url(${IMAGE_URL}${item.backdrop_path})` }}
+          // style={{ backgroundImage: `url(${IMAGE_URL}${item.backdrop_path})` }}
         ></div>
         <span className="film-card__item-name">{item.title || item.name}</span>
         <div className="film-card__item-voting">

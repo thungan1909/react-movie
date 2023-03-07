@@ -1,5 +1,4 @@
 import { Segmented } from "antd";
-import { useEffect } from "react";
 import "./customSegmented.css";
 
 export default function CustomSegmented({ options, setCurrentSegmented }) {

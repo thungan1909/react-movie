@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import MovieApi from "../../api/MovieApi";
-import CardItem from "../CardItem/cardItem";
+import MovieApi from "../../../api/MovieApi";
 import FilmSection from "../FilmSection/filmSection";
 export default function TopRatedSection() {
   const [data, setData] = useState([]);
@@ -9,7 +8,7 @@ export default function TopRatedSection() {
     MovieApi.getTopRated().then((res) => setData(res));
   }, []);
 
-  if (data != undefined) {
+  if (data !== undefined) {
     return <FilmSection titleSection={"Top Rated"} data={data}></FilmSection>;
   }
 }

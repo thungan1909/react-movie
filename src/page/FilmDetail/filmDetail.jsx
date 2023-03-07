@@ -3,11 +3,11 @@ import "./filmDetail.css";
 import { useParams } from "react-router-dom";
 import API_KEY from "../../utils/apiKey";
 import BASE_URL from "../../utils/baseURL";
-import BannerFilm from "../../component/BannerFilm/bannerFilm";
-import CustomHeader from "../../component/CustomHeader/customHeader";
-import DetailContent from "../../component/DetailContent/detailContent";
+import BannerFilm from "../../component/base/BannerFilm/bannerFilm";
+import CustomHeader from "../../component/base/CustomHeader/customHeader";
+import DetailContentSection from "../../component/section/DetailContentSection/detailContentSection";
 import IMAGE_URL from "../../utils/urlImage";
-import SimilarMovie from "../../component/SimilarMovie/similarMovie";
+import SimilarMovieSection from "../../component/section/SimilarMovieSection/similarMovieSection";
 
 export default function FilmDetail() {
   const { id } = useParams();
@@ -24,7 +24,7 @@ export default function FilmDetail() {
       })
       .catch((error) => {});
   }, []);
-  if (filmInfo != undefined) {
+  if (filmInfo !== undefined) {
     return (
       <div className="page-wrapper">
         <CustomHeader></CustomHeader>
@@ -39,11 +39,11 @@ export default function FilmDetail() {
           </div>
           <div className="detail-info">
             <BannerFilm item={filmInfo}></BannerFilm>
-            <DetailContent item={filmInfo}></DetailContent>
+            <DetailContentSection item={filmInfo}></DetailContentSection>
           </div>
         </div>
         <div className="similar-movie-wrapper">
-          <SimilarMovie movieID={filmInfo.id}></SimilarMovie>
+          <SimilarMovieSection movieID={filmInfo.id}></SimilarMovieSection>
         </div>
       </div>
     );

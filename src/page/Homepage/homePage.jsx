@@ -1,25 +1,16 @@
-import { Layout, Menu } from "antd";
-import { Content} from "antd/es/layout/layout";
-import { useEffect, useState } from "react";
-import CustomHeader from "../../component/CustomHeader/customHeader";
-import Banner from "../../component/Banner/banner";
-import './homePage.css'
-import TrendingSection from "../../component/TrendingSection/trendingSection";
-import LastestSection from "../../component/LastestSection/latestSection";
-import NowPlayingSection from "../../component/NowPlayingSection/nowPlayingSection";
-import TopRatedSection from "../../component/TopRatedSection/topRatedSection";
-import SearchResult from "../../component/SearchResult/searchResult";
+import CustomHeader from "../../component/base/CustomHeader/customHeader";
+import BannerSection from "../../component/section/BannerSection/bannerSection";
+import TopRatedSection from "../../component/section/TopRatedSection/topRatedSection";
+import TrendingSection from "../../component/section/TrendingSection/trendingSection";
+import "./homePage.css";
 
-
-export default function HomePage()
-{
-    return (
-      <div id="homepage-wrapper">
-          <CustomHeader></CustomHeader>
-          <Banner></Banner>
-          <TrendingSection></TrendingSection>  
-          <TopRatedSection></TopRatedSection>
-          {/* <LastestSection></LastestSection> */}
-      </div>
-    )
+export default function HomePage() {
+  return (
+    <div id="homepage-wrapper">
+      <CustomHeader></CustomHeader>
+      <BannerSection></BannerSection>
+      <TrendingSection></TrendingSection>
+      <TopRatedSection></TopRatedSection>
+    </div>
+  );
 }

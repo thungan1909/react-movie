@@ -3,12 +3,10 @@ import {
   BrowserRouter,
   Route,
   Routes,
-  useLocation,
-  useNavigate,
 } from "react-router-dom";
 import HomePage from "./page/Homepage/homePage";
 import FilmDetail from "./page/FilmDetail/filmDetail";
-import SearchResult from "./component/SearchResult/searchResult";
+import SearchResult from "./page/SearchResult/searchResult";
 function App() {
   // const getRoutes = (allRoutes) => {
   //   allRoutes.map((route) => {

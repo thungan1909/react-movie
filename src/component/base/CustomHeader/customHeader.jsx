@@ -1,9 +1,7 @@
 import { Header } from "antd/es/layout/layout";
 import { Menu } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
 import "./customHeader.css";
-import { useState } from "react";
-import AccountDropdown from "../AccountDropdown/accountDropdown";
+import AccountDropdown from "../../AccountDropdown/accountDropdown";
 import SearchBar from "../SearchBar/searchBar";
 
 const items = [

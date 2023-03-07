@@ -1,31 +1,29 @@
-import "./banner.css";
-import "../../App.css";
-import CustomHeader from "../CustomHeader/customHeader";
-import IMAGE_URL from "../../utils/urlImage";
+import "./bannerSection.css";
+// import IMAGE_URL from "../../utils/urlImage";
 import { useEffect, useState } from "react";
-import BASE_URL from "../../utils/baseURL";
-import API_KEY from "../../utils/apiKey";
+// import BASE_URL from "../../utils/baseURL";
+// import API_KEY from "../../utils/apiKey";
 import { Carousel, Button } from "antd";
 import { CaretRightOutlined, InfoCircleOutlined } from "@ant-design/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function Banner() {
+export default function BannerSection() {
   const [data, setData] = useState([]);
   const [dataSorted, setDataSorted] = useState([]);
   const navigate = useNavigate();
   let tempArray;
-  useEffect(() => {
-    fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.error) {
-          console.log("ERR");
-        } else {
-          setData(res.results);
-        }
-      })
-      .catch((error) => {});
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       if (res.error) {
+  //         console.log("ERR");
+  //       } else {
+  //         setData(res.results);
+  //       }
+  //     })
+  //     .catch((error) => {});
+  // }, []);
 
   useEffect(() => {
     sortByRating(data);
@@ -75,7 +73,7 @@ export default function Banner() {
                   <div key={item.id}>
                     <img
                       className="banner-img"
-                      src={IMAGE_URL + item.backdrop_path}
+                      // src={IMAGE_URL + item.backdrop_path}
                     ></img>
                     <div className="popular-film__detail-wrap">
                       <div className="popular-film__detail">

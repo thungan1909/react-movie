@@ -1,11 +1,8 @@
-import "./trendingSection.css";
-import "../../App.css";
-import { Progress, Carousel, Segmented } from "antd";
+import "../../../App.css";
 import { useEffect, useState } from "react";
-import CardItem from "../CardItem/cardItem";
-import MovieApi from "../../api/MovieApi";
+import MovieApi from "../../../api/MovieApi";
 import FilmSection from "../FilmSection/filmSection";
-import CustomSegmented from "../base/CustomSegmented/customSegmented";
+import CustomSegmented from "../../base/CustomSegmented/customSegmented";
 
 export default function TrendingSection() {
   const options = [
@@ -27,7 +24,7 @@ export default function TrendingSection() {
     }
   }, [currentSegmented]);
 
-  if (data != undefined) {
+  if (data !== undefined) {
     return (
       <div>
         <CustomSegmented

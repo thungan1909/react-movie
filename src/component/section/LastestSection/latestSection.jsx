@@ -3,7 +3,6 @@ import BASE_URL from "../../utils/baseURL";
 import IMAGE_URL from "../../utils/urlImage";
 import "../TrendingSection/trendingSection.css";
 import "../../App.css";
-import { Progress, Carousel, Segmented } from "antd";
 import { useEffect, useState } from "react";
 export default function LastestSection() {
   const [data, setData] = useState([]);

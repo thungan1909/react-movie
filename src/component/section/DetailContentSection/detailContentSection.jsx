@@ -1,18 +1,10 @@
-import { Button, Statistic, Rate, Tag, Tooltip } from "antd";
-import {
-  CaretRightOutlined,
-  PlusOutlined,
-  LikeFilled,
-  StarFilled,
-  StarOutlined,
-  StarTwoTone,
-} from "@ant-design/icons";
-import { useEffect, useState } from "react";
-import "./detailContent.css";
-import IMAGE_URL from "../../utils/urlImage";
-import SimilarMovie from "../SimilarMovie/similarMovie";
+import { Button, Rate, Tag, Tooltip } from "antd";
+import { CaretRightOutlined, PlusOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import "./detailContentSection.css";
+// import IMAGE_URL from "../../utils/urlImage";
 
-export default function DetailContent({ item }) {
+export default function DetailContentSection({ item }) {
   const desc = ["Dở tệ", "Không hay", "Bình thường", "Hay", "Tuyệt vời"];
 
   const [value, setValue] = useState(3);
@@ -108,7 +100,7 @@ export default function DetailContent({ item }) {
                   <Tooltip title={element.name}>
                     <img
                       className="production-companies--img"
-                      src={IMAGE_URL + element.logo_path}
+                      // src={IMAGE_URL + element.logo_path}
                     ></img>
                   </Tooltip>
                 </div>
