@@ -95,7 +95,7 @@ export default function DetailContentSection({ item }) {
           ) : (
             item.production_companies.map((element, idx) => {
               return (
-                <div style={{ marginInline: "16px" }}>
+                <div key={idx} style={{ marginInline: "16px" }}>
                   <Tooltip title={element.name}>
                     <img
                       className="production-companies--img"

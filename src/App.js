@@ -3,38 +3,42 @@ import {
   BrowserRouter,
   Route,
   Routes,
+  useLocation,
+  useNavigate,
 } from "react-router-dom";
 import HomePage from "./page/Homepage/homePage";
 import FilmDetail from "./page/FilmDetail/filmDetail";
 import SearchResult from "./page/SearchResult/searchResult";
+import Login from "./page/Login/login";
+import Register from "./page/Register/register";
+import routes from "./routes";
 function App() {
-  // const getRoutes = (allRoutes) => {
-  //   allRoutes.map((route) => {
-  //     if (route.route) {
-  //         return(
-  //           <Route path={route.route} element = {route.component} key = {route.key}></Route>
-  //         )
-  //     }
-  //     return null;
-  //   })
-  // }
+
   // const navigate = useNavigate();
   // const token = localStorage.getItem("token");
   // const location = useLocation();
   // console.log(location);
+  // const checkToken = () =>{
+  //   const token = localStorage.getItem("token");
+
+  //   const isAuthenticated = token && token.length > 0 ? (!token) : false;
+  //   if (!isAuthenticated) {
+  //     return <Navigate to="/login" replace />;
+  //   }
+  // }
+  const getRoutes = (allRoutes) =>
+    allRoutes.map((route) =>{
+     if(route.route)
+     {
+      return  <Route exact path={route.route} element={route.component} key={route.key} />;
+     }
+     return null;
+    });
+  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/home" element={<HomePage></HomePage>}></Route>
-        <Route
-          path="filmDetail/:id"
-          element={<FilmDetail></FilmDetail>}
-        ></Route>
-        <Route
-          path="/searchResults"
-          element={<SearchResult></SearchResult>}
-        ></Route>
+         {getRoutes(routes)}
       </Routes>
     </BrowserRouter>
   );

@@ -1,11 +1,11 @@
 import axios from 'axios';
-const AxiosClient = axios.create({
-    baseURL: "https://api.themoviedb.org",
+const AxiosClient3 = axios.create({
+    baseURL: "https://api.themoviedb.org/3",
     headers: {
       "Content-Type": "application/json"
     }
   });
-  AxiosClient.interceptors.request.use(
+  AxiosClient3.interceptors.request.use(
     (config) => {
       const token = localStorage.getItem("access_token");
       const additional = config;
@@ -20,7 +20,7 @@ const AxiosClient = axios.create({
     }
   );
   
-  AxiosClient.interceptors.response.use(
+  AxiosClient3.interceptors.response.use(
     (response) => {
       // Any status code that lie within the range of 2xx cause this function to trigger
       // Do something with response data
@@ -33,5 +33,5 @@ const AxiosClient = axios.create({
     }
   );
   
-  export default AxiosClient;
+  export default AxiosClient3;
   

@@ -21,7 +21,12 @@ export default function SimilarMovieSection({ id }) {
           ) : (
             data.map((item, index) => {
               if (index < 10) {
-                return <HorizontalCardItem item={item}></HorizontalCardItem>;
+                return (
+                  <HorizontalCardItem
+                    key={index}
+                    item={item}
+                  ></HorizontalCardItem>
+                );
               }
             })
           )}
