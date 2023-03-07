@@ -2,8 +2,7 @@ import { Button, Rate, Tag, Tooltip } from "antd";
 import { CaretRightOutlined, PlusOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import "./detailContentSection.css";
-// import IMAGE_URL from "../../utils/urlImage";
-
+import IMAGE_URL from "../../../utils/urlImage";
 export default function DetailContentSection({ item }) {
   const desc = ["Dở tệ", "Không hay", "Bình thường", "Hay", "Tuyệt vời"];
 
@@ -100,7 +99,7 @@ export default function DetailContentSection({ item }) {
                   <Tooltip title={element.name}>
                     <img
                       className="production-companies--img"
-                      // src={IMAGE_URL + element.logo_path}
+                      src={IMAGE_URL + element.logo_path}
                     ></img>
                   </Tooltip>
                 </div>

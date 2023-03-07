@@ -1,29 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./filmDetail.css";
 import { useParams } from "react-router-dom";
-import API_KEY from "../../utils/apiKey";
-import BASE_URL from "../../utils/baseURL";
 import BannerFilm from "../../component/base/BannerFilm/bannerFilm";
 import CustomHeader from "../../component/base/CustomHeader/customHeader";
 import DetailContentSection from "../../component/section/DetailContentSection/detailContentSection";
-import IMAGE_URL from "../../utils/urlImage";
 import SimilarMovieSection from "../../component/section/SimilarMovieSection/similarMovieSection";
+import MovieApi from "../../api/MovieApi";
+import IMAGE_URL from "../../utils/urlImage";
 
 export default function FilmDetail() {
   const { id } = useParams();
   const [filmInfo, setFilmInfo] = useState();
   useEffect(() => {
-    fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.error) {
-          console.log("ERROR");
-        } else {
-          setFilmInfo(res);
-        }
-      })
-      .catch((error) => {});
-  }, []);
+    MovieApi.getFilmDetail({ id }).then((res) => setFilmInfo(res));
+  }, [id]);
   if (filmInfo !== undefined) {
     return (
       <div className="page-wrapper">
@@ -43,7 +33,7 @@ export default function FilmDetail() {
           </div>
         </div>
         <div className="similar-movie-wrapper">
-          <SimilarMovieSection movieID={filmInfo.id}></SimilarMovieSection>
+          <SimilarMovieSection id={id}></SimilarMovieSection>
         </div>
       </div>
     );

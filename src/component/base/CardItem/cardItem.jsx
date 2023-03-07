@@ -1,7 +1,6 @@
-// import IMAGE_URL from "../../utils/urlImage";
-import AccountDropdown from "../../AccountDropdown/accountDropdown";
 import { useNavigate } from "react-router-dom";
 import { Progress } from "antd";
+import IMAGE_URL from "../../../utils/urlImage";
 import "./cardItem.css";
 export default function CardItem({ item }) {
   const navigate = useNavigate();
@@ -13,7 +12,7 @@ export default function CardItem({ item }) {
     <a className="film-card__item" onClick={() => handleClickCard(item.id)}>
       <div
         className="film-card__item-img"
-        // style={{ backgroundImage: `url(${IMAGE_URL}${item.backdrop_path})` }}
+        style={{ backgroundImage: `url(${IMAGE_URL}${item.backdrop_path})` }}
       ></div>
       <span className="film-card__item-name">{item.title || item.name}</span>
       <span className="film-card__item-time">

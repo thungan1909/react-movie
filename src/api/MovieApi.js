@@ -27,5 +27,42 @@ export default class MovieApi
         }
         return data;
     }
-
+    static async getPopular(){
+        let data = [];
+        try{
+            const response = await AxiosClient.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
+            data = response.results;
+        }
+        catch (error)
+        {
+            throw new Error(error.message);
+        }
+        return data;
+    }
+    static async getFilmDetail({id})
+    {
+        let data = [];
+        try{
+            const response = await AxiosClient.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
+            data = response;
+           
+        }
+        catch(error)
+        {
+            throw new Error(error.message);
+        }
+        return data;
+    }
+    static async getSimilar({id}) {
+        let data = [];
+        try {
+            const response = await AxiosClient.get(`/movie/${id}/similar?api_key=${API_KEY}&language=en-US&page=1`);
+            data = response.results;
+        }
+        catch(error)
+        {
+            throw new Error(error.message);
+        }
+        return data;
+    }
 }

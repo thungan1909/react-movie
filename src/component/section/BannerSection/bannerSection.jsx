@@ -1,36 +1,25 @@
 import "./bannerSection.css";
-// import IMAGE_URL from "../../utils/urlImage";
 import { useEffect, useState } from "react";
-// import BASE_URL from "../../utils/baseURL";
-// import API_KEY from "../../utils/apiKey";
 import { Carousel, Button } from "antd";
 import { CaretRightOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import IMAGE_URL from "../../../utils/urlImage";
+import MovieApi from "../../../api/MovieApi";
 
 export default function BannerSection() {
   const [data, setData] = useState([]);
   const [dataSorted, setDataSorted] = useState([]);
   const navigate = useNavigate();
   let tempArray;
-  // useEffect(() => {
-  //   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       if (res.error) {
-  //         console.log("ERR");
-  //       } else {
-  //         setData(res.results);
-  //       }
-  //     })
-  //     .catch((error) => {});
-  // }, []);
+  useEffect(() => {
+    MovieApi.getPopular().then((res) => setData(res));
+  }, []);
 
   useEffect(() => {
     sortByRating(data);
   }, [data]);
 
   const sortByRating = (data) => {
-    // let max = data[0].vote_average;
     tempArray = JSON.parse(JSON.stringify(data));
     let temp;
     let len = tempArray.length;
@@ -52,20 +41,12 @@ export default function BannerSection() {
     navigate(`/filmDetail/${id}`, { replace: true });
   };
 
-  const contentStyle = {
-    height: "160px",
-    color: "#fff",
-    lineHeight: "160px",
-    textAlign: "center",
-    background: "#364d79",
-  };
-
-  if (dataSorted != undefined) {
+  if (dataSorted !== undefined) {
     return (
       <div id="banner">
         <Carousel autoplay dotPosition={"bottom"}>
           {dataSorted?.length === 0 ? (
-            <div>Wait</div>
+            <div></div>
           ) : (
             dataSorted.map((item, index) => {
               if (index < 5) {
@@ -73,7 +54,7 @@ export default function BannerSection() {
                   <div key={item.id}>
                     <img
                       className="banner-img"
-                      // src={IMAGE_URL + item.backdrop_path}
+                      src={IMAGE_URL + item.backdrop_path}
                     ></img>
                     <div className="popular-film__detail-wrap">
                       <div className="popular-film__detail">
@@ -84,7 +65,6 @@ export default function BannerSection() {
                           {item.overview}
                         </p>
                         <div className="popular-film__buttonWrapper">
-                          {/* <Link to={`filmDetail/${item.id}`}  >Chi tiết</Link> */}
                           <div className="film-detail__buttonWrapper">
                             <Button
                               onClick={handleWatchFilm}
