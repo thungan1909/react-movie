@@ -1,6 +1,7 @@
 import IMAGE_URL from "../../utils/urlImage";
 import { Link, useNavigate } from "react-router-dom";
 import { Progress, Grid, Row, Col } from "antd";
+import "./cardItem.css";
 export default function CardItem({ item }) {
   const navigate = useNavigate();
   const handleClickCard = (id) => {
