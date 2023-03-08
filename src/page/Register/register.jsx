@@ -39,6 +39,7 @@ export default function Register() {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
+        <h1 style={{ textAlign: "center" }}>Register</h1>
         <Form.Item
           label="Username"
           name="username"

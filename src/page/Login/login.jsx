@@ -1,23 +1,20 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import AuthenApi from "../../api/AuthenApi";
 import "./login.css";
 export default function Login() {
   const [data, setData] = useState();
   const navigate = useNavigate();
+
   const onFinish = (values) => {
-    // console.log("Received values of form: ", values);
-    AuthenApi.CreateRequestToken().then((res) => setData(res));
+    AuthenApi.CreateRequestToken().then((res) => {
+      localStorage.setItem("token", res.request_token);
+      navigate("/home", { replace: "true" });
+    });
   };
 
-  useEffect(() => {
-    if (data != undefined) {
-      localStorage.setItem("token", data.request_token);
-      navigate("/home", { replace: true });
-    }
-  }, [data]);
   return (
     <div
       style={{
@@ -37,6 +34,7 @@ export default function Login() {
         }}
         onFinish={onFinish}
       >
+        <h1 style={{ textAlign: "center" }}>Login</h1>
         <Form.Item
           name="username"
           rules={[
@@ -81,10 +79,11 @@ export default function Login() {
             type="primary"
             htmlType="submit"
             className="login-form-button"
+            size="large"
           >
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <a href="/register">register now!</a>
         </Form.Item>
       </Form>
     </div>
