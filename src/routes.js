@@ -10,9 +10,9 @@ import Register from "./page/Register/register";
 import SearchResult from "./page/SearchResult/searchResult";
 const routes = [
     {
-        key: 'homep',
-        name: "Home",
-        route: '/home',
+        key: 'default',
+        name: "Default",
+        route: '/',
         component: 
         <ProtectAuthen>
             <HomePage/>

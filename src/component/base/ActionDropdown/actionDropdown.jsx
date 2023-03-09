@@ -1,4 +1,6 @@
 import { Dropdown, Space } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 import "./actionDropdown.css";
 
 import {
@@ -7,28 +9,7 @@ import {
   StarOutlined,
   EllipsisOutlined,
 } from "@ant-design/icons";
-const actionItems = [
-  {
-    key: "addList",
-    label: "Add to list",
-    icon: <UnorderedListOutlined />,
-  },
-  {
-    key: "favorite",
-    label: "Favorite",
-    icon: <HeartOutlined />,
-  },
-  // {
-  //   key: "watchlist",
-  //   label: "Watchlist",
-  //   icon: faBookmark,
-  // },
-  {
-    key: "rating",
-    label: "Your rating",
-    icon: <StarOutlined />,
-  },
-];
+
 const items = [
   {
     key: "addList",
@@ -40,11 +21,11 @@ const items = [
     label: "Favorite",
     icon: <HeartOutlined />,
   },
-  // {
-  //   key: "watchlist",
-  //   label: "Watchlist",
-  //   icon: faBookmark,
-  // },
+  {
+    key: "watchlist",
+    label: "Watchlist",
+    icon: <FontAwesomeIcon icon={faBookmark}></FontAwesomeIcon>,
+  },
   {
     key: "rating",
     label: "Your rating",

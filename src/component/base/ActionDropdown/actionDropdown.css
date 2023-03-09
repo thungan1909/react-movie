@@ -1,6 +1,6 @@
 .more-action-btn{
     width: 30px;
-    height: 30px;
+    height: auto;
     background-color:#a1a1a1;
     display: flex;
     align-items: center;
@@ -11,4 +11,8 @@
     right: 4px;
     z-index: 1;
 
+  }
+  .dropdown{
+    width: max-content;
+    padding-inline: 16px;
   }

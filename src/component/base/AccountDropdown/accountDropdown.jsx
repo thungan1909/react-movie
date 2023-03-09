@@ -1,8 +1,8 @@
-import { Dropdown } from "antd";
+import { Dropdown, Space, Divider } from "antd";
+import "../ActionDropdown/actionDropdown.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import CheckTokenServices from "../../../service/checkTokenServices";
-import { useEffect, useState } from "react";
 import {
   Navigate,
   useLocation,
@@ -11,7 +11,6 @@ import {
 } from "react-router-dom";
 
 export default function AccountDropdown({}) {
-  // const { state } = useLocation();
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -20,20 +19,45 @@ export default function AccountDropdown({}) {
   const items = [
     {
       key: "1",
+      label: <a target="_blank">Discussion</a>,
+    },
+    {
+      key: "2",
+      label: <a target="_blank">Lists</a>,
+    },
+    {
+      key: "3",
+      label: <a target="_blank">Rating</a>,
+    },
+    {
+      key: "4",
       label: (
-        <a target="_blank" rel="register" onClick={handleLogout}>
-          Đăng xuất
+        <a target="_blank">
+          Watchlist
+          <Divider
+            style={{
+              marginBlock: "4px",
+            }}
+          />
         </a>
       ),
     },
-    // {
-    //   key: "2",
-    //   label: (
-    //     <a target="_blank" rel="login" href="/register">
-    //       Đăng ký
-    //     </a>
-    //   ),
-    // },
+    {
+      key: "5",
+      label: <a target="_blank">Edit Profile </a>,
+    },
+    {
+      key: "6",
+      label: <a target="_blank">Settings </a>,
+    },
+    {
+      key: "7",
+      label: (
+        <a target="_blank" rel="register" onClick={handleLogout}>
+          Log out
+        </a>
+      ),
+    },
   ];
 
   return (
@@ -43,8 +67,11 @@ export default function AccountDropdown({}) {
       }}
       placement="bottomLeft"
       arrow
+      className="dropdown"
     >
-      <FontAwesomeIcon icon={faCircleUser} fontSize={36}></FontAwesomeIcon>
+      <Space>
+        <FontAwesomeIcon icon={faCircleUser} fontSize={36}></FontAwesomeIcon>
+      </Space>
     </Dropdown>
   );
 }
