@@ -6,30 +6,38 @@ import AuthenApi from "../../api/AuthenApi";
 import "./login.css";
 export default function Login() {
   const [token, setToken] = useState();
+
   const navigate = useNavigate();
   const location = useLocation();
-
+  let approvedToken = "";
   const onFinish = (values) => {
     AuthenApi.CreateRequestToken().then((res) => {
       setToken(res);
-      localStorage.setItem("token", res.request_token);
-      // navigate("/home", { replace: "true" });
+      localStorage.setItem("approve_token", res);
+      window.location.replace(
+        `https://www.themoviedb.org/authenticate/${res}?redirect_to=http://localhost:3000/login`
+      );
     });
+  };
+  const createSectionFunc = (approvedToken) => {
+    if (location.search === `?request_token=${approvedToken}&denied=true`) {
+      alert("You are denied permission, please try again");
+    } else if (
+      location.search === `?request_token=${approvedToken}&approved=true`
+    ) {
+      AuthenApi.CreateSection({ approvedToken }).then((res) => {
+        localStorage.setItem("token", approvedToken);
+        localStorage.setItem("session_id", res);
+        navigate("/home", { replace: "true" });
+      });
+    }
   };
 
   useEffect(() => {
-    // if ((location.search = `?request_token=${token}&approved=true`)) {
-    //   AuthenApi.CreateSection({ token }).then((res) => {
-    //     console.log(res);
-    //   });
-    // }
-    if (token !== undefined) {
-      // console.log("Token", token);
-      AuthenApi.CreateSection({ token });
-      // AuthenApi.CreateSection({ token });
+    approvedToken = localStorage.getItem("approve_token");
+    if (approvedToken !== undefined && approvedToken !== null) {
+      createSectionFunc(approvedToken);
     }
-    // if (location.pathname = )
-    // console.log(location);
   }, [token]);
 
   return (

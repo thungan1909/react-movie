@@ -14,6 +14,8 @@ export default function AccountDropdown({}) {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("approve_token");
+    localStorage.removeItem("session_id");
     navigate(`/login`, { replace: true });
   };
   const items = [
