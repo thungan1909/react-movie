@@ -6,11 +6,13 @@ export default class AuthenApi
     static async CreateRequestToken()
     {
        let data ;
-       let token;
+    //    let token;
         try{
             const response = await AxiosClient3.get(`/authentication/token/new?api_key=${API_KEY}`);
             // token = response.request_token;
-            data = response;
+            data = response.request_token;
+            // this.ApproveToken({token});
+            // data = response;
         }
         catch (error) 
         {
@@ -18,14 +20,22 @@ export default class AuthenApi
         }
        return data;
     }
-    static async ApproveToken({token})
+    // static async ApproveToken({token})
+    // {
+    //     window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/home`;
+    //     this.CreateSection({token});
+    // }
+    static async CreateSection({token})
     {
-      
+        window.location.href = `https://www.themoviedb.org/authenticate/${token}`;
+        
         let data;
         try{
-            const response = await AxiosClient.get(`/authenticate/${token}`);
-            data = response;
-            console.log("response",response);
+            console.log("Res");
+            const response =await AxiosClient3.post(`/authentication/session/new?api_key=${API_KEY}&request_token=${token}`, );
+            data = await response;
+            console.log("Res", response);
+           
         }
         catch (error) 
         {

@@ -5,15 +5,32 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import AuthenApi from "../../api/AuthenApi";
 import "./login.css";
 export default function Login() {
-  const [data, setData] = useState();
+  const [token, setToken] = useState();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onFinish = (values) => {
     AuthenApi.CreateRequestToken().then((res) => {
+      setToken(res);
       localStorage.setItem("token", res.request_token);
-      navigate("/home", { replace: "true" });
+      // navigate("/home", { replace: "true" });
     });
   };
+
+  useEffect(() => {
+    // if ((location.search = `?request_token=${token}&approved=true`)) {
+    //   AuthenApi.CreateSection({ token }).then((res) => {
+    //     console.log(res);
+    //   });
+    // }
+    if (token !== undefined) {
+      // console.log("Token", token);
+      AuthenApi.CreateSection({ token });
+      // AuthenApi.CreateSection({ token });
+    }
+    // if (location.pathname = )
+    // console.log(location);
+  }, [token]);
 
   return (
     <div
