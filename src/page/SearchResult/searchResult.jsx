@@ -6,7 +6,7 @@ import CustomHeader from "../../component/base/CustomHeader/customHeader";
 export default function SearchResult() {
   const { state } = useLocation();
 
-  console.log(state.data);
+  // console.log(state.data);
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(state.data);

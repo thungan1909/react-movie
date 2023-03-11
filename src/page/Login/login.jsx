@@ -19,13 +19,13 @@ export default function Login() {
       );
     });
   };
-  const createSectionFunc = (approvedToken) => {
+  const createSessionFunc = (approvedToken) => {
     if (location.search === `?request_token=${approvedToken}&denied=true`) {
       alert("You are denied permission, please try again");
     } else if (
       location.search === `?request_token=${approvedToken}&approved=true`
     ) {
-      AuthenApi.CreateSection({ approvedToken }).then((res) => {
+      AuthenApi.CreateSession({ approvedToken }).then((res) => {
         localStorage.setItem("token", approvedToken);
         localStorage.setItem("session_id", res);
         navigate("/home", { replace: "true" });
@@ -36,7 +36,7 @@ export default function Login() {
   useEffect(() => {
     approvedToken = localStorage.getItem("approve_token");
     if (approvedToken !== undefined && approvedToken !== null) {
-      createSectionFunc(approvedToken);
+      createSessionFunc(approvedToken);
     }
   }, [token]);
 

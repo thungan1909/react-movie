@@ -14,54 +14,54 @@ const routes = [
         name: "Default",
         route: '/',
         component: 
-        <ProtectAuthen>
+        // <ProtectAuthen>
             <HomePage/>
-        </ProtectAuthen>
+        // </ProtectAuthen>
     },
     {
         key: "login",
         name: "Login",
         route: "/login",
-        component: 
-        <RedirectHomePage>
-            <Login/>
-        </RedirectHomePage>
+        component: <Login/>
+        // <RedirectHomePage>
+            
+        // </RedirectHomePage> 
     },
-    {
-        key: "register",
-        name: "Register",
-        route: "/register",
-        component:
-        <RedirectHomePage>
-             <Register/>
-        </RedirectHomePage>
-    },
+    // {
+    //     key: "register",
+    //     name: "Register",
+    //     route: "/register",
+    //     component:
+    //     // <RedirectHomePage>
+    //          <Register/>
+    //     // </RedirectHomePage>
+    // },
     {
         key: "home",
         name: "Home",
         route: "/home",
         component: 
-        <ProtectAuthen>
+        // <ProtectAuthen>
             <HomePage/>
-        </ProtectAuthen>
+        // </ProtectAuthen>
     },
     {
         key: "film-detail",
         name: "FilmDetail",
         route: "filmDetail/:id",
         component: 
-        <ProtectAuthen>
+        // <ProtectAuthen>
             <FilmDetail/>
-        </ProtectAuthen>
+    //    </ProtectAuthen>
     },
     {
         key: "search-result",
         name: "SearchResults",
         route: "/searchResults",
         component: 
-        <ProtectAuthen>
+        // <ProtectAuthen>
             <SearchResult/>
-        </ProtectAuthen>
+        // </ProtectAuthen>
     },
     {
         key: "notFound",

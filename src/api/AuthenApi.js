@@ -16,12 +16,7 @@ export default class AuthenApi {
     }
     return data;
   }
-  // static async ApproveToken({token})
-  // {
-  //     window.location.href = `https://www.themoviedb.org/authenticate/${token}?redirect_to=http://localhost:3000/home`;
-  //     this.CreateSection({token});
-  // }
-  static async CreateSection({ approvedToken }) {
+  static async CreateSession({ approvedToken }) {
     try {
       const response = await AxiosClient3.post(
         `/authentication/session/new?api_key=${API_KEY}&request_token=${approvedToken}`

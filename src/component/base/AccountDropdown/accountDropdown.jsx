@@ -1,4 +1,4 @@
-import { Dropdown, Space, Divider } from "antd";
+import { Dropdown, Space, Divider, Button } from "antd";
 import "../ActionDropdown/actionDropdown.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
@@ -10,12 +10,15 @@ import {
   useParams,
 } from "react-router-dom";
 
-export default function AccountDropdown({}) {
+export default function AccountDropdown({ sessionId }) {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("approve_token");
     localStorage.removeItem("session_id");
+    navigate(`/login`, { replace: true });
+  };
+  const handleLogin = () => {
     navigate(`/login`, { replace: true });
   };
   const items = [
@@ -61,19 +64,26 @@ export default function AccountDropdown({}) {
       ),
     },
   ];
-
-  return (
-    <Dropdown
-      menu={{
-        items,
-      }}
-      placement="bottomLeft"
-      arrow
-      className="dropdown"
-    >
-      <Space>
-        <FontAwesomeIcon icon={faCircleUser} fontSize={36}></FontAwesomeIcon>
-      </Space>
-    </Dropdown>
-  );
+  if (sessionId) {
+    return (
+      <Dropdown
+        menu={{
+          items,
+        }}
+        placement="bottomLeft"
+        arrow
+        className="dropdown"
+      >
+        <Space>
+          <FontAwesomeIcon icon={faCircleUser} fontSize={36}></FontAwesomeIcon>
+        </Space>
+      </Dropdown>
+    );
+  } else {
+    return (
+      <>
+        <Button onClick={handleLogin}>Login</Button>
+      </>
+    );
+  }
 }

@@ -6,14 +6,14 @@ import CheckTokenServices from "../../service/checkTokenServices";
 import "./homePage.css";
 
 export default function HomePage() {
-  const isAuthen = CheckTokenServices();
-  if (isAuthen)
-    return (
-      <div id="homepage-wrapper">
-        <CustomHeader></CustomHeader>
-        <BannerSection></BannerSection>
-        <TrendingSection></TrendingSection>
-        <TopRatedSection></TopRatedSection>
-      </div>
-    );
+  const session_id = localStorage.getItem("session_id");
+
+  return (
+    <div id="homepage-wrapper">
+      <CustomHeader sessionId={session_id}></CustomHeader>
+      <BannerSection></BannerSection>
+      <TrendingSection></TrendingSection>
+      <TopRatedSection></TopRatedSection>
+    </div>
+  );
 }

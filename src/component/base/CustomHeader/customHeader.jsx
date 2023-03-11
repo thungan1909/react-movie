@@ -3,7 +3,7 @@ import "./customHeader.css";
 import AccountDropdown from "../AccountDropdown/accountDropdown";
 import SearchBar from "../SearchBar/searchBar";
 
-export default function CustomHeader() {
+export default function CustomHeader({ sessionId }) {
   return (
     <Header>
       <a href="/home" className="logo">
@@ -11,7 +11,7 @@ export default function CustomHeader() {
       </a>
       <div className="btn-wrapper">
         <SearchBar></SearchBar>
-        <AccountDropdown></AccountDropdown>
+        <AccountDropdown sessionId={sessionId}></AccountDropdown>
       </div>
     </Header>
   );
