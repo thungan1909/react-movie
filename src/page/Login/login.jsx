@@ -26,7 +26,7 @@ export default function Login() {
       location.search === `?request_token=${approvedToken}&approved=true`
     ) {
       AuthenApi.CreateSession({ approvedToken }).then((res) => {
-        localStorage.setItem("token", approvedToken);
+        // localStorage.setItem("token", approvedToken);
         localStorage.setItem("session_id", res);
         navigate("/home", { replace: "true" });
       });

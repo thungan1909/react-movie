@@ -4,6 +4,7 @@ import ProtectAuthen from "./page/Authen/ProtectedAuthen";
 import RedirectHomePage from "./page/Authen/RedirectHomePage";
 import FilmDetail from "./page/FilmDetail/filmDetail";
 import HomePage from "./page/Homepage/homePage";
+import NewList from "./page/List/NewList/newList";
 import Login from "./page/Login/login";
 import NotFound from "./page/NotFound/notFound";
 import Register from "./page/Register/register";
@@ -64,12 +65,19 @@ const routes = [
         // </ProtectAuthen>
     },
     {
+        key: "newlist",
+        name: "new List",
+        route: "/list/new",
+        component: <NewList></NewList>
+    },
+    {
         key: "notFound",
         name: "Not Found",
         route: "*",
         component: 
             <NotFound/>
     },
+  
   
 ];
 export default routes;

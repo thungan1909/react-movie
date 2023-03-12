@@ -9,10 +9,12 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
+import AuthenApi from "../../../api/AuthenApi";
 
 export default function AccountDropdown({ sessionId }) {
   const navigate = useNavigate();
   const handleLogout = () => {
+    AuthenApi.DeleteSession({ sessionId });
     localStorage.removeItem("token");
     localStorage.removeItem("approve_token");
     localStorage.removeItem("session_id");
